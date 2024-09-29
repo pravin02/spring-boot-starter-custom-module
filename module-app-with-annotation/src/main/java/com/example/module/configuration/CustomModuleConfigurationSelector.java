@@ -8,10 +8,15 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class CustomModuleConfigurationSelector extends AdviceModeImportSelector<EnableCustomModule> {
+
+    private static final Logger LOGGER = Logger.getLogger(CustomModuleConfigurationSelector.class.getSimpleName());
+
     @Override
     protected String[] selectImports(AdviceMode adviceMode) {
+        LOGGER.info("selectImports: adviceMode: " + adviceMode);
         String[] data = {};
         switch (adviceMode) {
             case PROXY: {
@@ -33,6 +38,8 @@ public class CustomModuleConfigurationSelector extends AdviceModeImportSelector<
         List<String> result = new ArrayList<>(2);
         result.add(AutoProxyRegistrar.class.getName());
         result.add(CustomModuleConfiguration.class.getName());
+
+        LOGGER.info("selectImports: getProxyImports: " + result);
         return StringUtils.toStringArray(result);
     }
 }

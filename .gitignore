@@ -1,0 +1,4 @@
+/.idea
+/main-app/target
+/module-app-with-annotation/target
+/spring-boot-starter-custom-module/target

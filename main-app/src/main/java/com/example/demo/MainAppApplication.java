@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableCustomModule
 @SpringBootApplication
-public class DemoApplication implements CommandLineRunner {
+public class MainAppApplication implements CommandLineRunner {
 
     @Autowired
     CustomModuleService customModuleService;
@@ -21,7 +21,7 @@ public class DemoApplication implements CommandLineRunner {
     CustomStarterService customStarterService;
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(MainAppApplication.class, args);
     }
 
     @Override

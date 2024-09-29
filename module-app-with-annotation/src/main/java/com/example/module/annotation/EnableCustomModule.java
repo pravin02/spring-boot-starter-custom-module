@@ -28,11 +28,10 @@ public @interface EnableCustomModule {
     boolean proxyTargetClass() default false;
 
     /**
-     * Indicate how caching advice should be applied.
+     * Indicate how custom module advice should be applied.
      * <p><b>The default is {@link AdviceMode#PROXY}.</b>
      * Please note that proxy mode allows for interception of calls through the proxy
-     * only. Local calls within the same class cannot get intercepted that way;
-     * a caching annotation on such a method within a local call will be ignored
+     * only. Local calls within the same class cannot get intercepted that way;     *
      * since Spring's interceptor does not even kick in for such a runtime scenario.
      * For a more advanced mode of interception, consider switching this to
      * {@link AdviceMode#ASPECTJ}.
@@ -40,7 +39,7 @@ public @interface EnableCustomModule {
     AdviceMode mode() default AdviceMode.PROXY;
 
     /**
-     * Indicate the ordering of the execution of the caching advisor
+     * Indicate the ordering of the execution of the custom advisor if any
      * when multiple advices are applied at a specific joinpoint.
      * <p>The default is {@link Ordered#LOWEST_PRECEDENCE}.
      */
